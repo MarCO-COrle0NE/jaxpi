@@ -81,7 +81,8 @@ def evaluate(config: ml_collections.ConfigDict, workdir: str):
     )
 
     # Restore checkpoint
-    ckpt_path = os.path.join(".", "ckpt", config.wandb.name)
+    # ckpt_path = os.path.join(".", "ckpt", config.wandb.name)
+    ckpt_path = os.path.join(os.getcwd(), config.wandb.name, "ckpt")
     model.state = restore_checkpoint(model.state, ckpt_path)
     params = model.state.params
 

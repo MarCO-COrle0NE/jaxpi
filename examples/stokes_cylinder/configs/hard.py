@@ -12,14 +12,14 @@ def get_config():
     # Weights & Biases
     config.wandb = wandb = ml_collections.ConfigDict()
     wandb.project = "PINN-Stokes"
-    wandb.name = "sota"
+    wandb.name = "hard"
     wandb.tag = None
 
     # Nondimensionalization
     config.nondim = True
 
     # Constraints
-    config.bc_constraints = "soft"  # "hard" or "soft"
+    config.bc_constraints = "hard"  # "hard" or "soft"
 
     # Arch
     config.arch = arch = ml_collections.ConfigDict()

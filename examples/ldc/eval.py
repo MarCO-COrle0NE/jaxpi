@@ -329,7 +329,7 @@ v_Ghia = {
 
 
 def evaluate(config: ml_collections.ConfigDict, workdir: str, Re: int):
-    Re = 5000
+    #Re = 5000
     # Load dataset
     u_ref, v_ref, x_star, y_star, nu = get_dataset(Re)
 
@@ -337,7 +337,8 @@ def evaluate(config: ml_collections.ConfigDict, workdir: str, Re: int):
     model = models.NavierStokes2D(config)
 
     # Restore checkpoint
-    path = os.path.join(".", "ckpt", config.wandb.name, "Re{}".format(Re))
+    #path = os.path.join(".", "ckpt", config.wandb.name, "Re{}".format(Re))
+    path = os.path.join(os.getcwd(), config.wandb.name, "ckpt", "Re{}".format(Re))
     model.state = restore_checkpoint(model.state, path)
     params = model.state.params
 

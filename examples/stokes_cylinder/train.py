@@ -72,15 +72,27 @@ def train_and_evaluate(config: ml_collections.ConfigDict, workdir: str):
         Re = 1 / nu
 
     # Initialize model
-    model = models.Stokes2D(
-        config,
-        u_inflow,
-        inflow_coords,
-        outflow_coords,
-        wall_coords,
-        cylinder_coords,
-        Re,
-    )
+    if config.bc_constraints == "hard":
+        model = models.Stokes2DHardAll(
+            config,
+            u_inflow,
+            inflow_coords,
+            outflow_coords,
+            wall_coords,
+            cylinder_coords,
+            Re,
+            hard_outflow=True,
+        )
+    else:
+        model = models.Stokes2D(
+            config,
+            u_inflow,
+            inflow_coords,
+            outflow_coords,
+            wall_coords,
+            cylinder_coords,
+            Re,
+        )
 
     # Initialize evaluator
     evaluator = models.StokesEvaluator(config, model)
