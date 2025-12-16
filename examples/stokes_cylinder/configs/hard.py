@@ -57,12 +57,12 @@ def get_config():
     weighting.scheme = "grad_norm"
     weighting.init_weights = ml_collections.ConfigDict(
         {
-            "u_in": 1.0,
-            "v_in": 1.0,
-            "u_out": 1.0,
-            "v_out": 1.0,
-            "u_noslip": 1.0,
-            "v_noslip": 1.0,
+            # "u_in": 1.0,
+            # "v_in": 1.0,
+            # "u_out": 1.0,
+            # "v_out": 1.0,
+            # "u_noslip": 1.0,
+            # "v_noslip": 1.0,
             "ru": 1.0,
             "rv": 1.0,
             "rc": 1.0,
